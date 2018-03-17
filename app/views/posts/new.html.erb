@@ -1,0 +1,19 @@
+<h3>Post Form</h3>
+<!-- ERRORS -->
+<!-- Unable to find visible field "post_title" that is not disabled -->
+
+<!-- <form class="" action="/posts" method="post"> -->
+<!-- <form action="<%= posts_path%>" method="POST"> before form_tag via ActionView-->
+<%= form_tag posts_path do%>
+  <label for="">Post title:</label><br>
+  <!-- <input type="text" id="post_title" name="post[title]" value=""><br> replaced by text_field_tag-->
+  <%= text_field_tag :'post[title]'%> <br>
+  <label for="">Post description:</label><br>
+  <!-- <input type="text" id="post_description" name="post[description]" value=""><br> replace by text_field_tag-->
+  <%= text_field_tag :'post[description]'%> <br> <!--sets id="post_description" and  name="post[description]" without being told to-->
+  <!-- <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">  replaced by rail's hidden_field_tag-->
+  <!-- < %= hidden_field_tag :authenticity_token, form_authenticity_token% > form_tag handles this so not needed to add-->
+  <input type="submit"  value="Submit Post">
+<!-- </form>  before form_tag via ActionView-->
+<%end%>
+<%= params.inspect %>
